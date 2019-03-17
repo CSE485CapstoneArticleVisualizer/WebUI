@@ -1,0 +1,9 @@
+mat-sidenav-container {
+    height: 100vh;
+}
+
+#toggleButton {
+    min-width: 36px;
+    top: calc((100vh - 36px) / 2);
+    position: fixed;
+}

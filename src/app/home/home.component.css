@@ -1,16 +1,6 @@
-/* #imgCarousel {
+#imgCarousel {
     top: 0;
     left: 0;
     position: absolute;
     z-index: -1;
-} */
-
-mat-sidenav-container {
-    height: 100vh;
-}
-
-#toggleButton {
-    min-width: 36px;
-    top: calc((100vh - 36px) / 2);
-    position: absolute;
 }

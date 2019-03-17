@@ -1,1 +1,18 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side">
+        <app-filter></app-filter>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+        <button mat-raised-button color="primary" (click)="sidenav.toggle()" id="toggleButton">
+            <div *ngIf="!sidenav.opened">
+                <i class="fas fa-chevron-right fa-lg"></i>
+            </div>
+            <div *ngIf="sidenav.opened">
+                <i class="fas fa-chevron-left fa-lg"></i>
+            </div>
+        </button>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
