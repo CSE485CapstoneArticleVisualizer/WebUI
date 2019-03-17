@@ -1,0 +1,145 @@
+<div class="container" id="filter">
+  <div class="text-center">
+    <h1>Article Fitler</h1>
+  </div>
+
+  <div class="section">
+    <div>
+      <h3 for="subject">Subject:</h3>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="Subject Areas" [(ngModel)]="selected_sub_area">
+          <mat-option *ngFor="let option of sub_options" [value]="option.area" (click)="updateCategory()">
+            {{option.area}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-select style="width: 100%" placeholder="Subject Categories" [(ngModel)]="selected_sub_category"
+          [disabled]="selected_sub_area === sub_options[0].area">
+          <mat-option *ngFor="let option of category_options" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="section">
+    <div>
+      <h3 for="keyword">Keywords:</h3>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Keywords" [(ngModel)]="keyword">
+        <button mat-button *ngIf="keyword" matSuffix mat-icon-button aria-label="Clear" (click)="keyword=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="section">
+    <div>
+      <h3 for="published_date">Published Date:</h3>
+    </div>
+    <div>
+      <div>
+        <mat-radio-group class="example-radio-group" [(ngModel)]="month_input">
+          <mat-radio-button color="primary" class="example-radio-button" *ngFor="let month of month_range"
+            [value]="month">
+            {{month}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div>
+        <p-slider [(ngModel)]="year_range_input" [style]="{'width':'100%'}" [min]="min_year_range"
+          [max]="max_year_range" [range]="true" (onChange)="updateYearRangeSlider()"
+          [disabled]="month_input!=='Choose year range'"></p-slider>
+      </div>
+      <div>
+        <mat-form-field class="col-6">
+          <input [disabled]="month_input!=='Choose year range'" matInput type="text"
+            placeholder="Min year: {{min_year_range}} - {{max_year_range}}" [(ngModel)]="min_year_input"
+            (keyup)="updateYearRangeInput()">
+          <button [disabled]="month_input!=='Choose year range'" mat-button *ngIf="min_year_input" matSuffix
+            mat-icon-button aria-label="Clear" (click)="min_year_input=''; updateYearRangeInput()">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-hint *ngIf="min_year_input==='' && month_input==='Choose year range'" style="color: red">Please enter a
+            min year or use slider!</mat-hint>
+          <mat-hint *ngIf="min_year_input > max_year_input && month_input==='Choose year range'" style="color: red">Min
+            year must be less than or equal to max year!</mat-hint>
+          <mat-hint
+            *ngIf="min_year_input && min_year_input < min_year_range && min_year_input <= max_year_input && month_input==='Choose year range'"
+            style="color: red">Min
+            year is out of range, year range
+            must be within the past 30 years!</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="col-6">
+          <input [disabled]="month_input!=='Choose year range'" matInput type="text"
+            placeholder="Max year: {{min_year_range}} - {{max_year_range}}" [(ngModel)]="max_year_input"
+            (keyup)="updateYearRangeInput()">
+          <button [disabled]="month_input!=='Choose year range'" mat-button *ngIf="max_year_input" matSuffix
+            mat-icon-button aria-label="Clear" (click)="max_year_input=''; updateYearRangeInput()">
+            <mat-icon>close</mat-icon>
+          </button>
+          <mat-hint *ngIf="max_year_input==='' && month_input==='Choose year range'" style="color: red">Please enter a
+            max year or use slider!</mat-hint>
+          <mat-hint *ngIf="max_year_input && max_year_input < min_year_input && month_input==='Choose year range'"
+            style="color: red">Max
+            year must be greater than or equal to min year!</mat-hint>
+          <mat-hint
+            *ngIf="max_year_input && max_year_input > max_year_range && max_year_input >= min_year_input && month_input==='Choose year range'"
+            style="color: red">Max
+            year is out of range, year range
+            must be within the past 30 years!</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div>
+      <h3 for="rc">Region / Country:</h3>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-select placeholder="Region / Country" [(ngModel)]="selected_rc">
+          <mat-option value="All regions / countries">All regions / countries</mat-option>
+          <mat-optgroup *ngFor="let group of rc_options" [label]="group.name">
+            <mat-option *ngFor="let option of group.value" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="section">
+    <div>
+      <h3 for="author">Author Name:</h3>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput type="text" placeholder="J. W. Author" [(ngModel)]="author">
+        <button mat-button *ngIf="author" matSuffix mat-icon-button aria-label="Clear" (click)="author=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="section">
+    <button style="width: 100px; margin-right: 20px" mat-raised-button>
+      <mat-icon>clear</mat-icon>Clear
+    </button>
+    <button style="width: 100px" mat-raised-button color="primary">
+      <mat-icon>search</mat-icon>Search
+    </button>
+  </div>
+</div>
