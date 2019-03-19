@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,13 +12,15 @@ import { VisComponent } from './vis/vis.component';
 import { AngularMaterialModule } from './shared/angular-material-module';
 import { PrimeNGModule } from './shared/primeng-module';
 import { FilterComponent } from './filter/filter.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     VisComponent,
-    FilterComponent
+    FilterComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { FilterComponent } from './filter/filter.component';
     ReactiveFormsModule,
     FormsModule,
     AngularMaterialModule,
-    PrimeNGModule
+    PrimeNGModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

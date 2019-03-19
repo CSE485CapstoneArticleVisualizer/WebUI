@@ -1,0 +1,31 @@
+/* app-bar-chart {
+    #chart {
+        height: 50vh;
+        width: 90vw;
+
+        // .bar {
+        //     fill: steelblue;
+        // }
+        
+        // .bar:hover {
+        //     fill: brown;
+        // }
+        
+        // .axis--x path {
+        //     display: none;
+        // }
+    }
+} */
+
+#chart {
+    height: 50vh;
+    width: 90vw;
+}
+
+.bar {
+    fill: steelblue;
+}
+
+.bar:hover {
+    fill: brown;
+}
