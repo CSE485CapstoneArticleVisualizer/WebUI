@@ -1,7 +1,4 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { DataModel } from './data/data.model';
 
 @Component({
   selector: 'app-root',
@@ -11,20 +8,8 @@ import { DataModel } from './data/data.model';
 export class AppComponent implements OnInit {
 
   @ViewChild('sidenav') sidenav;
-  data: Observable<DataModel[]>;
-
-  constructor(private http: HttpClient) {
-    this.getJSON().subscribe(data => {
-      console.log(data);
-      this.data = data;
-    });
-  }
 
   ngOnInit() {
     this.sidenav.opened = true;
-  }
-
-  public getJSON(): Observable<any> {
-    return this.http.get('./assets/data.json');
   }
 }

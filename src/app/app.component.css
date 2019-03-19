@@ -7,7 +7,3 @@ mat-sidenav-container {
     top: calc((100vh - 36px) / 2);
     position: fixed;
 }
-
-app-bar-chart {
-    width: 50%;
-}
