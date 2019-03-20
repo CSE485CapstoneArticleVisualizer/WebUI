@@ -69,8 +69,8 @@
             mat-icon-button aria-label="Clear" (click)="min_year_input=''; updateYearRangeInput()">
             <mat-icon>close</mat-icon>
           </button>
-          <mat-hint *ngIf="min_year_input==='' && month_input==='Choose year range'" style="color: red">Please enter a
-            min year or use slider!</mat-hint>
+          <!-- <mat-hint *ngIf="min_year_input==='' && month_input==='Choose year range'" style="color: red">Please enter a
+            min year or use slider!</mat-hint> -->
           <mat-hint *ngIf="min_year_input > max_year_input && month_input==='Choose year range'" style="color: red">Min
             year must be less than or equal to max year!</mat-hint>
           <mat-hint
@@ -87,8 +87,8 @@
             mat-icon-button aria-label="Clear" (click)="max_year_input=''; updateYearRangeInput()">
             <mat-icon>close</mat-icon>
           </button>
-          <mat-hint *ngIf="max_year_input==='' && month_input==='Choose year range'" style="color: red">Please enter a
-            max year or use slider!</mat-hint>
+          <!-- <mat-hint *ngIf="max_year_input==='' && month_input==='Choose year range'" style="color: red">Please enter a
+            max year or use slider!</mat-hint> -->
           <mat-hint *ngIf="max_year_input && max_year_input < min_year_input && month_input==='Choose year range'"
             style="color: red">Max
             year must be greater than or equal to min year!</mat-hint>
