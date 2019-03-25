@@ -4,7 +4,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <router-outlet></router-outlet>
+        <!-- <router-outlet></router-outlet> -->
         <button mat-raised-button color="primary" (click)="sidenav.toggle()" id="toggleButton">
             <div *ngIf="!sidenav.opened">
                 <i class="fas fa-chevron-right fa-lg"></i>
@@ -13,5 +13,6 @@
                 <i class="fas fa-chevron-left fa-lg"></i>
             </div>
         </button>
+        <graph [nodes]="nodes" [links]="links"></graph>
     </mat-sidenav-content>
 </mat-sidenav-container>

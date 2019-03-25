@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private http: HttpClient) {
     this.getJSON().subscribe(data => {
-      console.log(data);
       this.data = data;
     });
   }
