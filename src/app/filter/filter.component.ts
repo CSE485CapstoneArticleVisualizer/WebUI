@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, Group } from '../shared/classes';
 import { SUB_OPTIONS, RC_OPTIONS } from '../shared/data';
+import { ArticleService } from '../service/article.service';
 
 @Component({
   selector: 'app-filter',
@@ -29,7 +30,7 @@ export class FilterComponent implements OnInit {
   min_year_range: number = new Date().getFullYear() - 30;
   max_year_range: number = new Date().getFullYear();
 
-  constructor() {
+  constructor(private articleService: ArticleService) {
     this.sub_options = SUB_OPTIONS;
     this.rc_options = RC_OPTIONS;
   }
@@ -70,5 +71,11 @@ export class FilterComponent implements OnInit {
       && this.min_year_input <= this.max_year_input && this.max_year_input >= this.min_year_input) {
       this.year_range_input = [this.min_year_input, this.max_year_input];
     }
+  }
+
+  getArtitcleByAuthor() {
+    this.articleService.getArticlesByAuthor().subscribe(data => {
+      console.log(data);
+    });
   }
 }
