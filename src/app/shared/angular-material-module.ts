@@ -6,7 +6,8 @@ import {
     MatButtonModule,
     MatSelectModule,
     MatRadioModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatProgressSpinnerModule
 } from '@angular/material';
 
 
@@ -18,7 +19,8 @@ import {
         MatButtonModule,
         MatSelectModule,
         MatRadioModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatProgressSpinnerModule
     ],
     exports: [
         MatAutocompleteModule,
@@ -27,7 +29,8 @@ import {
         MatButtonModule,
         MatSelectModule,
         MatRadioModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatProgressSpinnerModule
     ]
 })
 export class AngularMaterialModule { }

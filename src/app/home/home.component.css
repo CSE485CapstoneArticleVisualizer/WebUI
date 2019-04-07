@@ -14,3 +14,9 @@ img {
     background-color: rgba(255, 255, 255, 0.95);
     height: 100vh;
 }
+
+mat-spinner {
+    top: calc((100vh - 90px) / 2);
+    left: calc((100% - 90px) / 2);
+    position: fixed;
+}

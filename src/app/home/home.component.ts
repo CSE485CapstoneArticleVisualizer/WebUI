@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
 
     this.articleService.getArticlesByAuthor().subscribe(data => {
       this.data = data;
+      APP_CONFIG.N = data.articles.length;
       console.log(data.articles);
       console.log(data.links);
       // this.nodes = data.nodes;

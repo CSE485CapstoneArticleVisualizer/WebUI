@@ -13,9 +13,10 @@ import { AngularMaterialModule } from './shared/angular-material-module';
 import { PrimeNGModule } from './shared/primeng-module';
 import { FilterComponent } from './filter/filter.component';
 
-import { GraphComponent } from './visuals/graph/graph.component';
-import { SHARED_VISUALS } from './visuals/shared';
+// import { GraphComponent } from './visuals/graph/graph.component';
+// import { SHARED_VISUALS } from './visuals/shared';
 import { D3Service, D3_DIRECTIVES } from './d3';
+import { ForceDirectedGraphComponent } from './d3/force-directed-graph/force-directed-graph.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +24,10 @@ import { D3Service, D3_DIRECTIVES } from './d3';
     HomeComponent,
     VisComponent,
     FilterComponent,
-    GraphComponent,
-    ...SHARED_VISUALS,
-    ...D3_DIRECTIVES
+    // GraphComponent,
+    // ...SHARED_VISUALS,
+    ...D3_DIRECTIVES,
+    ForceDirectedGraphComponent
   ],
   imports: [
     BrowserModule,

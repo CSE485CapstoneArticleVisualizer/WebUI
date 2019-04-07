@@ -14,5 +14,7 @@
 
 <div id="chartDiv" class="text-center">
     <!-- <app-vis></app-vis> -->
-    <graph *ngIf="data" [nodes]="nodes" [links]="links"></graph>
+    <mat-spinner *ngIf="!data"></mat-spinner>
+    <!-- <graph *ngIf="data" [nodes]="nodes" [links]="links"></graph> -->
+    <app-force-directed-graph *ngIf="data" [nodes]="nodes" [links]="links"></app-force-directed-graph>
 </div>
