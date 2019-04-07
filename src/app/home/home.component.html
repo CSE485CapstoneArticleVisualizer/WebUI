@@ -13,7 +13,6 @@
 </div>
 
 <div id="chartDiv" class="text-center">
-    <!-- <h1>Bar Chart</h1> -->
-    <!-- <app-bar-chart [data]="data"></app-bar-chart> -->
-    <app-vis></app-vis>
+    <!-- <app-vis></app-vis> -->
+    <graph *ngIf="data" [nodes]="nodes" [links]="links"></graph>
 </div>

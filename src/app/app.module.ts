@@ -12,7 +12,6 @@ import { VisComponent } from './vis/vis.component';
 import { AngularMaterialModule } from './shared/angular-material-module';
 import { PrimeNGModule } from './shared/primeng-module';
 import { FilterComponent } from './filter/filter.component';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 import { GraphComponent } from './visuals/graph/graph.component';
 import { SHARED_VISUALS } from './visuals/shared';
@@ -24,7 +23,6 @@ import { D3Service, D3_DIRECTIVES } from './d3';
     HomeComponent,
     VisComponent,
     FilterComponent,
-    BarChartComponent,
     GraphComponent,
     ...SHARED_VISUALS,
     ...D3_DIRECTIVES
