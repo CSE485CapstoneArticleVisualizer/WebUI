@@ -34,6 +34,8 @@ export class HomeComponent implements OnInit {
     //     this.links.push(new Link(i, i * m));
     //   }
     // }
+
+    // this.data = this.nodes;
   }
 
   ngOnInit() {

@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      {{article.title}}
+      <a href="{{article.link}}" target="_blank">Link</a>
+    </mat-card-title>
+    <mat-card-subtitle>By: {{article.authors}}</mat-card-subtitle>
+    <mat-card-subtitle>Published date: {{article.date}}</mat-card-subtitle>
+    <mat-card-subtitle>Area: {{article.area}}</mat-card-subtitle>
+    <mat-card-subtitle>Category: {{article.category}}</mat-card-subtitle>
+    <mat-card-subtitle>Journal: {{article.journal}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{article.abstract}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div id="buttonDiv">
+      <button mat-raised-button (click)="closeDetailDiv()">
+        <mat-icon>clear</mat-icon>CLOSE
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>
