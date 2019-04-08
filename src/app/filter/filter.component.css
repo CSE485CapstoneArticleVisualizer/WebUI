@@ -1,6 +1,7 @@
 #filter {
-    background-image: url(../../assets/img/network.jpg);
-    background-position: left top; 
+/*    background-image: url(../../assets/img/network.jpg);
+    background-position: left top; */
+    background-color: #eff7ff;
     min-height: 100%;
     padding-top: 20px;
     padding-bottom: 20px;

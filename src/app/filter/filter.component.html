@@ -63,13 +63,13 @@
       <div>
         <mat-form-field class="col-6">
           <input [disabled]="month_input!=='Choose year range'" matInput type="text"
-            placeholder="Min year: {{min_year_range}} - {{max_year_range}}" [(ngModel)]="min_year_input"
+            placeholder="Min year: {{min_year_range}}" [(ngModel)]="min_year_input"
             (keyup)="updateYearRangeInput()">
           <button [disabled]="month_input!=='Choose year range'" mat-button *ngIf="min_year_input" matSuffix
             mat-icon-button aria-label="Clear" (click)="min_year_input=''; updateYearRangeInput()">
             <mat-icon>close</mat-icon>
           </button>
-          <!-- <mat-hint *ngIf="min_year_input==='' && month_input==='Choose year range'" style="color: red">Please enter a
+<!--           <mat-hint *ngIf="min_year_input===0 && month_input==='Choose year range'" style="color: red">Please enter a
             min year or use slider!</mat-hint> -->
           <mat-hint *ngIf="min_year_input > max_year_input && month_input==='Choose year range'" style="color: red">Min
             year must be less than or equal to max year!</mat-hint>
@@ -81,13 +81,13 @@
         </mat-form-field>
         <mat-form-field class="col-6">
           <input [disabled]="month_input!=='Choose year range'" matInput type="text"
-            placeholder="Max year: {{min_year_range}} - {{max_year_range}}" [(ngModel)]="max_year_input"
+            placeholder="Max year: {{max_year_range}}" [(ngModel)]="max_year_input"
             (keyup)="updateYearRangeInput()">
           <button [disabled]="month_input!=='Choose year range'" mat-button *ngIf="max_year_input" matSuffix
             mat-icon-button aria-label="Clear" (click)="max_year_input=''; updateYearRangeInput()">
             <mat-icon>close</mat-icon>
           </button>
-          <!-- <mat-hint *ngIf="max_year_input==='' && month_input==='Choose year range'" style="color: red">Please enter a
+<!--           <mat-hint *ngIf="max_year_input===0 && month_input==='Choose year range'" style="color: red">Please enter a
             max year or use slider!</mat-hint> -->
           <mat-hint *ngIf="max_year_input && max_year_input < min_year_input && month_input==='Choose year range'"
             style="color: red">Max

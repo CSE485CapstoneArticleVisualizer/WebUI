@@ -5,6 +5,11 @@
     z-index: -1;
 }
 
+#bg {
+    background-image: url(../../assets/img/grid.png);
+    background-position: left top;
+}
+
 img {
     height: 100vh;
     width: 100vw;
