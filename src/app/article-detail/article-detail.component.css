@@ -5,3 +5,7 @@ mat-card {
 #buttonDiv {
     margin-left: 80%;
 }
+
+mat-tab-group {
+  max-height: 500px;
+}

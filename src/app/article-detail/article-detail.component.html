@@ -1,18 +1,44 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>
-      {{article.title}}
-      <a href="{{article.link}}" target="_blank">Link</a>
+      <a href="{{article.link}}" target="_blank">
+        <h3>{{article.title | titlecase}}</h3>
+      </a>
     </mat-card-title>
-    <mat-card-subtitle>By: {{article.authors}}</mat-card-subtitle>
-    <mat-card-subtitle>Published date: {{article.date}}</mat-card-subtitle>
-    <mat-card-subtitle>Area: {{article.area}}</mat-card-subtitle>
-    <mat-card-subtitle>Category: {{article.category}}</mat-card-subtitle>
-    <mat-card-subtitle>Journal: {{article.journal}}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>
-    <p>{{article.abstract}}</p>
-  </mat-card-content>
+
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span>Info</span>
+      </ng-template>
+      <mat-card-subtitle>By: {{article.authors}}</mat-card-subtitle>
+      <mat-card-subtitle>Published date: {{article.date}}</mat-card-subtitle>
+      <mat-card-subtitle>Area: {{article.area}}</mat-card-subtitle>
+      <mat-card-subtitle>Category: {{article.category}}</mat-card-subtitle>
+      <mat-card-subtitle>Journal: {{article.journal}}</mat-card-subtitle>
+      <mat-card-content>
+        <p>{{article.abstract}}</p>
+      </mat-card-content>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span matBadge="{{article.cites.length}}" matBadgeOverlap="false">Reference</span>
+      </ng-template>
+      <ol>
+        <li *ngFor="let ref of article.cites">{{ref}}</li>
+      </ol>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span matBadge="{{article.citedBy.length}}" matBadgeOverlap="false">Citation</span>
+      </ng-template>
+      <ol>
+        <li *ngFor="let cb of article.citedBy">{{cb}}</li>
+      </ol>
+    </mat-tab>
+  </mat-tab-group>
+
   <mat-card-actions>
     <div id="buttonDiv">
       <button mat-raised-button (click)="closeDetailDiv()">

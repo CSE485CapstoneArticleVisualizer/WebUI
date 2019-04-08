@@ -8,7 +8,10 @@ import {
     MatRadioModule,
     MatSidenavModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule,
+    MatListModule,
+    MatBadgeModule
 } from '@angular/material';
 
 
@@ -22,7 +25,10 @@ import {
         MatRadioModule,
         MatSidenavModule,
         MatProgressSpinnerModule,
-        MatCardModule
+        MatCardModule,
+        MatTabsModule,
+        MatListModule,
+        MatBadgeModule
     ],
     exports: [
         MatAutocompleteModule,
@@ -33,7 +39,10 @@ import {
         MatRadioModule,
         MatSidenavModule,
         MatProgressSpinnerModule,
-        MatCardModule
+        MatCardModule,
+        MatTabsModule,
+        MatListModule,
+        MatBadgeModule
     ]
 })
 export class AngularMaterialModule { }
