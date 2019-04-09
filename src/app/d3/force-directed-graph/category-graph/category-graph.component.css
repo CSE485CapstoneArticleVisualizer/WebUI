@@ -20,8 +20,8 @@
 
 /* Links */
 .link {
-    stroke-width: 0.5;
-    stroke: rgb(140, 154, 166);
+    stroke-width: 1;
+    stroke: white;
 }
 
 /* Article Detail Popup */

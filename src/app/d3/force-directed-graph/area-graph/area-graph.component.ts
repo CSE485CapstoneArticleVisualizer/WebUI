@@ -1,4 +1,7 @@
-import { Component, Input, ChangeDetectorRef, HostListener, ChangeDetectionStrategy, OnInit, AfterViewInit } from '@angular/core';
+import {
+  Component, Input, ChangeDetectorRef, HostListener,
+  ChangeDetectionStrategy, OnInit, AfterViewInit, Output, EventEmitter
+} from '@angular/core';
 import { D3Service, ForceDirectedGraph } from '../../../d3';
 
 @Component({
@@ -10,6 +13,7 @@ import { D3Service, ForceDirectedGraph } from '../../../d3';
 export class AreaGraphComponent implements OnInit, AfterViewInit {
   @Input('nodes') nodes;
   @Input('links') links;
+  @Output() getAreaEvent = new EventEmitter<string>();
   graph: ForceDirectedGraph;
   private _options: { width, height } = { width: 800, height: 600 };
   public articleID: number;
@@ -48,12 +52,7 @@ export class AreaGraphComponent implements OnInit, AfterViewInit {
     };
   }
 
-  getArticleInfoByID(id: number) {
-    this.articleID = id;
-    this.showDetail = true;
-  }
-
-  closeDetailDiv($event) {
-    this.showDetail = $event;
+  getArea(area: string) {
+    this.getAreaEvent.emit(area);
   }
 }

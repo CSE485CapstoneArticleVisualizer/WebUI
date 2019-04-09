@@ -4,6 +4,7 @@ import { ArticleService } from './../service/article.service';
 import APP_CONFIG from './../app.config';
 import { Node, Link } from './../d3';
 import { SUB_OPTIONS } from '../shared/data';
+import { Subject } from '../shared/classes';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +12,19 @@ import { SUB_OPTIONS } from '../shared/data';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  nodes: Node[] = [];
-  links: Link[] = [];
+  areaNodes: Node[] = [];
+  categoryNodes: Node[] = [];
+  journalNodes: Node[] = [];
+  articleNodes: Node[] = [];
 
-  data: any;
+  areaLinks: Link[] = [];
+  categoryLinks: Link[] = [];
+  journalLinks: Link[] = [];
+  articleLinks: Link[] = [];
+
   sub = SUB_OPTIONS.slice(1);
 
-  selected_area: string;
+  selected_area: Subject;
   selected_category: string;
   selected_journal: string;
 
@@ -31,21 +38,19 @@ export class HomeComponent implements OnInit {
     for (let i = 1; i <= N; i++) {
       const newNode = new Node(i);
       newNode.name = this.sub[i - 1].area;
-      this.nodes.push(newNode);
+      this.areaNodes.push(newNode);
     }
 
     for (let i = 1; i <= N; i++) {
       for (let m = 2; i * m <= N; m++) {
         /** increasing connections toll on connecting nodes */
-        this.nodes[getIndex(i)].linkCount++;
-        this.nodes[getIndex(i * m)].linkCount++;
+        this.areaNodes[getIndex(i)].linkCount++;
+        this.areaNodes[getIndex(i * m)].linkCount++;
 
         /** connecting the nodes before starting the simulation */
-        this.links.push(new Link(i, i * m));
+        this.areaLinks.push(new Link(i, i * m));
       }
     }
-
-    this.data = this.nodes;
   }
 
   ngOnInit() {
@@ -82,5 +87,31 @@ export class HomeComponent implements OnInit {
 
     //   this.links = data.links;
     // });
+  }
+
+  getAreaEvent($event) {
+    this.selected_area = this.sub.find(s => s.area === $event);
+    this.selected_area.category = this.selected_area.category.slice(1);
+    APP_CONFIG.N = this.selected_area.category.length;
+    const N = APP_CONFIG.N,
+      getIndex = number => number - 1;
+
+    /** constructing the nodes array */
+    for (let i = 1; i <= N; i++) {
+      const newNode = new Node(i);
+      newNode.name = this.selected_area.category[i - 1];
+      this.categoryNodes.push(newNode);
+    }
+
+    for (let i = 1; i <= N; i++) {
+      for (let m = 2; i * m <= N; m++) {
+        /** increasing connections toll on connecting nodes */
+        this.categoryNodes[getIndex(i)].linkCount++;
+        this.categoryNodes[getIndex(i * m)].linkCount++;
+
+        /** connecting the nodes before starting the simulation */
+        this.categoryLinks.push(new Link(i, i * m));
+      }
+    }
   }
 }
