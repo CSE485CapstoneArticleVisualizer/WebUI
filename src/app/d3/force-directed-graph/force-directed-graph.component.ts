@@ -12,6 +12,8 @@ export class ForceDirectedGraphComponent implements OnInit, AfterViewInit {
   @Input('links') links;
   graph: ForceDirectedGraph;
   private _options: { width, height } = { width: 800, height: 600 };
+  public articleID: number;
+  public showDetail = false;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -44,5 +46,14 @@ export class ForceDirectedGraphComponent implements OnInit, AfterViewInit {
       width: window.innerWidth,
       height: window.innerHeight
     };
+  }
+
+  getArticleInfoByID(id: number) {
+    this.articleID = id;
+    this.showDetail = true;
+  }
+
+  closeDetailDiv($event) {
+    this.showDetail = $event;
   }
 }

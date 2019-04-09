@@ -16,6 +16,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sidenav.opened = true;
+    // this.sidenav.opened = true;
   }
 }

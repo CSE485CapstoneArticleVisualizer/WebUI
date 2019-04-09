@@ -17,6 +17,7 @@ import { FilterComponent } from './filter/filter.component';
 // import { SHARED_VISUALS } from './visuals/shared';
 import { D3Service, D3_DIRECTIVES } from './d3';
 import { ForceDirectedGraphComponent } from './d3/force-directed-graph/force-directed-graph.component';
+import { ArticleDetailComponent } from './article-detail/article-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ForceDirectedGraphComponent } from './d3/force-directed-graph/force-dir
     // GraphComponent,
     // ...SHARED_VISUALS,
     ...D3_DIRECTIVES,
-    ForceDirectedGraphComponent
+    ForceDirectedGraphComponent,
+    ArticleDetailComponent
   ],
   imports: [
     BrowserModule,

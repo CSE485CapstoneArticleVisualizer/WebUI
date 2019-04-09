@@ -30,12 +30,12 @@ export class HomeComponent implements OnInit {
         this.nodes[getIndex(i)].linkCount++;
         this.nodes[getIndex(i * m)].linkCount++;
 
-        /** connecting the nodes before starting the simulation */
-        this.links.push(new Link(i, i * m));
-      }
-    }
+    //     /** connecting the nodes before starting the simulation */
+    //     this.links.push(new Link(i, i * m));
+    //   }
+    // }
 
-    this.data = this.nodes;
+    // this.data = this.nodes;
   }
 
   ngOnInit() {

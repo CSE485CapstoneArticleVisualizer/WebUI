@@ -23,3 +23,15 @@
     stroke-width: 0.5;
     stroke: rgb(140, 154, 166);
 }
+
+/* Article Detail Popup */
+#articleDetail {
+    z-index: 9999;
+    margin: 25px;
+}
+
+#articleDetail {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
