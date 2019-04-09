@@ -1,13 +1,13 @@
 import { Component, Input, ChangeDetectorRef, HostListener, ChangeDetectionStrategy, OnInit, AfterViewInit } from '@angular/core';
-import { D3Service, ForceDirectedGraph } from '../../d3';
+import { D3Service, ForceDirectedGraph } from '../../../d3';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-force-directed-graph',
-  templateUrl: './force-directed-graph.component.html',
-  styleUrls: ['./force-directed-graph.component.css']
+  selector: 'app-area-graph',
+  templateUrl: './area-graph.component.html',
+  styleUrls: ['./area-graph.component.css']
 })
-export class ForceDirectedGraphComponent implements OnInit, AfterViewInit {
+export class AreaGraphComponent implements OnInit, AfterViewInit {
   @Input('nodes') nodes;
   @Input('links') links;
   graph: ForceDirectedGraph;

@@ -1,0 +1,22 @@
+<div id="articleDetail" *ngIf="showDetail">
+  <app-article-detail [articleID]="articleID" (closeDetailEvent)="closeDetailDiv($event)"></app-article-detail>
+</div>
+
+<svg #svg [attr.width]="_options.width" [attr.height]="_options.height">
+  <g [zoomableOf]="svg">
+    <g *ngFor="let link of links">
+      <line class="link" [attr.x1]="link.source.x" [attr.y1]="link.source.y" [attr.x2]="link.target.x"
+        [attr.y2]="link.target.y"></line>
+    </g>
+    <g *ngFor="let node of nodes" [draggableNode]="node" [draggableInGraph]="graph"
+      (click)="getArticleInfoByID(node.id)">
+      <g [attr.transform]="'translate(' + node.x + ',' + node.y + ')'">
+        <circle class="node" [attr.fill]="node.color" cx="0" cy="0" [attr.r]="node.r">
+        </circle>
+        <text class="node-name" [attr.font-size]="node.fontSize">
+          {{node.id}}
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ForceDirectedGraphComponent } from './force-directed-graph.component';
+import { AreaGraphComponent } from './area-graph.component';
 
-describe('ForceDirectedGraphComponent', () => {
-  let component: ForceDirectedGraphComponent;
-  let fixture: ComponentFixture<ForceDirectedGraphComponent>;
+describe('AreaGraphComponent', () => {
+  let component: AreaGraphComponent;
+  let fixture: ComponentFixture<AreaGraphComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ForceDirectedGraphComponent ]
+      declarations: [ AreaGraphComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ForceDirectedGraphComponent);
+    fixture = TestBed.createComponent(AreaGraphComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
