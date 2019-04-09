@@ -7,3 +7,7 @@
 button:focus {
     outline: 0;
 }
+
+g:focus {
+    outline: none;
+}

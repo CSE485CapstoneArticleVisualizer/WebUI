@@ -16,8 +16,11 @@ import { FilterComponent } from './filter/filter.component';
 // import { GraphComponent } from './visuals/graph/graph.component';
 // import { SHARED_VISUALS } from './visuals/shared';
 import { D3Service, D3_DIRECTIVES } from './d3';
-import { ForceDirectedGraphComponent } from './d3/force-directed-graph/force-directed-graph.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { ArticleGraphComponent } from './d3/force-directed-graph/article-graph/article-graph.component';
+import { AreaGraphComponent } from './d3/force-directed-graph/area-graph/area-graph.component';
+import { CategoryGraphComponent } from './d3/force-directed-graph/category-graph/category-graph.component';
+import { JournalGraphComponent } from './d3/force-directed-graph/journal-graph/journal-graph.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +31,11 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
     // GraphComponent,
     // ...SHARED_VISUALS,
     ...D3_DIRECTIVES,
-    ForceDirectedGraphComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    ArticleGraphComponent,
+    AreaGraphComponent,
+    CategoryGraphComponent,
+    JournalGraphComponent
   ],
   imports: [
     BrowserModule,
