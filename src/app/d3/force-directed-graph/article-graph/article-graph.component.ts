@@ -103,4 +103,8 @@ export class ArticleGraphComponent implements OnInit, AfterViewInit {
   closeDetailDiv($event) {
     this.showDetail = $event;
   }
+
+  goBack(): void {
+    this.location.back();
+  }
 }

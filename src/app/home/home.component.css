@@ -1,5 +1,0 @@
-mat-spinner {
-    top: calc((100vh - 90px) / 2);
-    left: calc((100% - 90px) / 2);
-    position: fixed;
-}

@@ -1,18 +1,24 @@
-<svg #svg [attr.width]="_options.width" [attr.height]="_options.height" *ngIf="nodes">
-  <g [zoomableOf]="svg">
-    <g *ngFor="let link of links">
-      <line class="link" [attr.x1]="link.source.x" [attr.y1]="link.source.y" [attr.x2]="link.target.x"
-        [attr.y2]="link.target.y"></line>
-    </g>
-    <g *ngFor="let node of nodes" [draggableNode]="node" [draggableInGraph]="graph"
-      routerLink="/{{journalName}}/article">
-      <g [attr.transform]="'translate(' + node.x + ',' + node.y + ')'">
-        <circle class="node" [attr.fill]="node.color" cx="0" cy="0" [attr.r]="node.r">
-        </circle>
-        <text class="node-name" [attr.font-size]="node.fontSize">
-          {{node.id}}
-        </text>
+<div id="graph">
+  <mat-spinner *ngIf="nodes.length === 0"></mat-spinner>
+
+  <svg #svg [attr.width]="_options.width" [attr.height]="_options.height" *ngIf="nodes.length > 0">
+    <g [zoomableOf]="svg">
+      <g *ngFor="let link of links">
+        <line class="link" [attr.x1]="link.source.x" [attr.y1]="link.source.y" [attr.x2]="link.target.x"
+          [attr.y2]="link.target.y"></line>
+      </g>
+      <g *ngFor="let node of nodes" [draggableNode]="node" [draggableInGraph]="graph"
+        routerLink="/{{journalName}}/article">
+        <g [attr.transform]="'translate(' + node.x + ',' + node.y + ')'">
+          <circle class="node" [attr.fill]="node.color" cx="0" cy="0" [attr.r]="node.r">
+          </circle>
+          <text class="node-name" [attr.font-size]="node.fontSize">
+            {{node.id}}
+          </text>
+        </g>
       </g>
     </g>
-  </g>
-</svg>
+  </svg>
+
+  <button id="backBtn" mat-fab color="primary" (click)="goBack()">Back</button>
+</div>
