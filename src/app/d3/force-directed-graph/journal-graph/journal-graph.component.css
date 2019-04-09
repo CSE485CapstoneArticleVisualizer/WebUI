@@ -20,18 +20,12 @@
 
 /* Links */
 .link {
-    stroke-width: 0.5;
-    stroke: rgb(140, 154, 166);
+    stroke-width: 1;
+    stroke: white;
 }
 
-/* Article Detail Popup */
-#articleDetail {
-    z-index: 9999;
-    margin: 25px;
-}
-
-#articleDetail {
-    position: absolute;
-    top: 0;
-    right: 0;
+svg {
+    background-color: rgba(128, 128, 128, 0.85);
+    height: 100vh;
+    width: 100vw;
 }

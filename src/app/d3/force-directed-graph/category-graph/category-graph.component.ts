@@ -1,5 +1,12 @@
 import { Component, Input, ChangeDetectorRef, HostListener, ChangeDetectionStrategy, OnInit, AfterViewInit } from '@angular/core';
 import { D3Service, ForceDirectedGraph } from '../../../d3';
+import { ArticleService } from './../../../service/article.service';
+import APP_CONFIG from './../../../app.config';
+import { Node, Link } from './../../../d3';
+import { SUB_OPTIONS } from '../../../shared/data';
+import { Subject } from 'src/app/shared/classes';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -8,12 +15,11 @@ import { D3Service, ForceDirectedGraph } from '../../../d3';
   styleUrls: ['./category-graph.component.css']
 })
 export class CategoryGraphComponent implements OnInit, AfterViewInit {
-  @Input('nodes') nodes;
-  @Input('links') links;
+  nodes: Node[] = [];
+  links: Link[] = [];
   graph: ForceDirectedGraph;
   private _options: { width, height } = { width: 800, height: 600 };
-  public articleID: number;
-  public showDetail = false;
+  selected_area: Subject;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -21,9 +27,41 @@ export class CategoryGraphComponent implements OnInit, AfterViewInit {
   }
 
 
-  constructor(private d3Service: D3Service, private ref: ChangeDetectorRef) { }
+  constructor(
+    private d3Service: D3Service,
+    private ref: ChangeDetectorRef,
+    private route: ActivatedRoute,
+    private location: Location
+  ) { }
 
   ngOnInit() {
+    const area = this.route.snapshot.paramMap.get('area');
+    console.log(area);
+    this.selected_area = SUB_OPTIONS.find(s => s.area === area);
+    this.selected_area.category = this.selected_area.category.filter(c => c !== 'All subject categories');
+
+    APP_CONFIG.N = this.selected_area.category.length;
+    const N = APP_CONFIG.N,
+      getIndex = number => number - 1;
+
+    /** constructing the nodes array */
+    for (let i = 1; i <= N; i++) {
+      const newNode = new Node(i);
+      newNode.name = this.selected_area.category[i - 1];
+      this.nodes.push(newNode);
+    }
+
+    for (let i = 1; i <= N; i++) {
+      for (let m = 2; i * m <= N; m++) {
+        /** increasing connections toll on connecting nodes */
+        this.nodes[getIndex(i)].linkCount++;
+        this.nodes[getIndex(i * m)].linkCount++;
+
+        /** connecting the nodes before starting the simulation */
+        this.links.push(new Link(i, i * m));
+      }
+    }
+
     /** Receiving an initialized simulated graph from our custom d3 service */
     this.graph = this.d3Service.getForceDirectedGraph(this.nodes, this.links, this.options);
 
@@ -48,12 +86,7 @@ export class CategoryGraphComponent implements OnInit, AfterViewInit {
     };
   }
 
-  getArticleInfoByID(id: number) {
-    this.articleID = id;
-    this.showDetail = true;
-  }
-
-  closeDetailDiv($event) {
-    this.showDetail = $event;
+  goBack(): void {
+    this.location.back();
   }
 }
