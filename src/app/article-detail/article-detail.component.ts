@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ArticleService } from '../service/article.service';
-import { Article } from '../shared/classes';
 
 @Component({
   selector: 'app-article-detail',
@@ -9,19 +8,15 @@ import { Article } from '../shared/classes';
 })
 export class ArticleDetailComponent implements OnInit {
 
-  @Input('articleID') articleID;
+  @Input('article') articleData;
   @Output() closeDetailEvent = new EventEmitter<boolean>();
 
-  public article: Article;
+  public article: any;
 
   constructor(private articleService: ArticleService) { }
 
   ngOnInit() {
-    console.log(this.articleID);
-    this.article = this.articleService.getArticleInfoByID(this.articleID);
-    // this.articleService.getArticleInfoByID(this.articleID).subscribe(data => {
-    //   console.log(data);
-    // });
+    this.article = this.articleData;
   }
 
   closeDetailDiv() {

@@ -19,6 +19,7 @@ export class ArticleGraphComponent implements OnInit, AfterViewInit {
   private _options: { width, height } = { width: 800, height: 600 };
   public articleID: number;
   public showDetail = false;
+  public article: any;
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -97,7 +98,11 @@ export class ArticleGraphComponent implements OnInit, AfterViewInit {
 
   getArticleInfoByID(id: number) {
     this.articleID = id;
-    this.showDetail = true;
+    this.articleService.getArticleInfoByID(this.articleID).subscribe(data => {
+      console.log(data);
+      this.article = data;
+      this.showDetail = true;
+    });
   }
 
   closeDetailDiv($event) {

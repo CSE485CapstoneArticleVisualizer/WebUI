@@ -12,8 +12,8 @@ export class Article {
     title: string;
     abstract: string;
     authors: string[];
-    citedBy: string[];
-    cites: string[];
+    citations: string[];
+    references: string[];
     published_date: string;
     area: string;
     category: string;

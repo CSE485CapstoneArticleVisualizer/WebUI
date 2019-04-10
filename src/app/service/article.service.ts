@@ -18,12 +18,12 @@ export class ArticleService {
       authors: [
         'Yuriy Nevmyvaka'
       ],
-      citedBy: [
+      citations: [
         'Using real-time cluster configurations of streaming asynchronous features as online state descriptors in financial markets',
         'Intelligent trading agents for massively multi-player game economies',
         'The evolution and dynamics of stocks on the Johannesburg Securities Exchange and their implications for equity investment management'
       ],
-      cites: [
+      references: [
         'The Microeconomics of Market Making',
         'A Simple Implicit Measure of the Effective Bid\u2010Ask Spread in an Efficient Market',
         'Market vs. Limit Orders: The SuperDOT Evidence on Order Submission Strategy',
@@ -137,8 +137,8 @@ export class ArticleService {
     return this.http.get('http://localhost:3900/api/users/get_author?author=' + 'Alex');
   }
 
-  getArticleInfoByID(id: number) {
-    return this.article;
-    // return this.http.get('http://localhost:3900/api/users/get_article_by_id?article_id=' + id);
+  getArticleInfoByID(id: number): Observable<any> {
+    // return this.article;
+    return this.http.get('http://localhost:3900/api/users/get_article_by_id?article_id=' + id);
   }
 }

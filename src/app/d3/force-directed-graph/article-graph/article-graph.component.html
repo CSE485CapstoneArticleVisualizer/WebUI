@@ -1,5 +1,5 @@
 <div id="articleDetail" *ngIf="showDetail">
-  <app-article-detail [articleID]="articleID" (closeDetailEvent)="closeDetailDiv($event)"></app-article-detail>
+  <app-article-detail [article]="article" (closeDetailEvent)="closeDetailDiv($event)"></app-article-detail>
 </div>
 
 <div id="graph">
