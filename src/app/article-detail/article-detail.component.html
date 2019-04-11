@@ -3,6 +3,7 @@
     <mat-card-title>
       <a href="{{article.link}}" target="_blank">
         <h3>{{article.title | titlecase}}</h3>
+        <span>(32565)</span>
       </a>
     </mat-card-title>
   </mat-card-header>
@@ -14,8 +15,10 @@
       </ng-template>
       <mat-card-subtitle>By: {{article.authors}}</mat-card-subtitle>
       <mat-card-subtitle>Published date: {{article.published_date}}</mat-card-subtitle>
-      <mat-card-subtitle>Area: {{article.area}}</mat-card-subtitle>
-      <mat-card-subtitle>Category: {{article.category}}</mat-card-subtitle>
+      <!-- <mat-card-subtitle>Area: {{article.area}}</mat-card-subtitle> -->
+      <mat-card-subtitle>Area: Medicine</mat-card-subtitle>
+      <!-- <mat-card-subtitle>Category: {{article.category}}</mat-card-subtitle> -->
+      <mat-card-subtitle>Category: Cardiology and Cardiovascular Medicine</mat-card-subtitle>
       <mat-card-subtitle>Journal: {{article.journal}}</mat-card-subtitle>
       <mat-card-content>
         <p>{{article.abstract}}</p>

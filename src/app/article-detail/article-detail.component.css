@@ -7,5 +7,9 @@ mat-card {
 }
 
 mat-tab-group {
-  max-height: 500px;
+  max-height: 480px;
+}
+
+h3 {
+  margin: 0;
 }
