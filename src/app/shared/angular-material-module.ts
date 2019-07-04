@@ -6,7 +6,12 @@ import {
     MatButtonModule,
     MatSelectModule,
     MatRadioModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatTabsModule,
+    MatListModule,
+    MatBadgeModule
 } from '@angular/material';
 
 
@@ -18,7 +23,12 @@ import {
         MatButtonModule,
         MatSelectModule,
         MatRadioModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatProgressSpinnerModule,
+        MatCardModule,
+        MatTabsModule,
+        MatListModule,
+        MatBadgeModule
     ],
     exports: [
         MatAutocompleteModule,
@@ -27,7 +37,12 @@ import {
         MatButtonModule,
         MatSelectModule,
         MatRadioModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatProgressSpinnerModule,
+        MatCardModule,
+        MatTabsModule,
+        MatListModule,
+        MatBadgeModule
     ]
 })
 export class AngularMaterialModule { }

@@ -12,7 +12,15 @@ import { VisComponent } from './vis/vis.component';
 import { AngularMaterialModule } from './shared/angular-material-module';
 import { PrimeNGModule } from './shared/primeng-module';
 import { FilterComponent } from './filter/filter.component';
-import { BarChartComponent } from './bar-chart/bar-chart.component';
+
+// import { GraphComponent } from './visuals/graph/graph.component';
+// import { SHARED_VISUALS } from './visuals/shared';
+import { D3Service, D3_DIRECTIVES } from './d3';
+import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { ArticleGraphComponent } from './d3/force-directed-graph/article-graph/article-graph.component';
+import { AreaGraphComponent } from './d3/force-directed-graph/area-graph/area-graph.component';
+import { CategoryGraphComponent } from './d3/force-directed-graph/category-graph/category-graph.component';
+import { JournalGraphComponent } from './d3/force-directed-graph/journal-graph/journal-graph.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +28,14 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     HomeComponent,
     VisComponent,
     FilterComponent,
-    BarChartComponent
+    // GraphComponent,
+    // ...SHARED_VISUALS,
+    ...D3_DIRECTIVES,
+    ArticleDetailComponent,
+    ArticleGraphComponent,
+    AreaGraphComponent,
+    CategoryGraphComponent,
+    JournalGraphComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +47,7 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
     PrimeNGModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [D3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

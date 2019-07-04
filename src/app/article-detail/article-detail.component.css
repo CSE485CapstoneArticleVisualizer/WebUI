@@ -1,0 +1,15 @@
+mat-card {
+  max-width: 600px;
+}
+
+#buttonDiv {
+    margin-left: 80%;
+}
+
+mat-tab-group {
+  max-height: 480px;
+}
+
+h3 {
+  margin: 0;
+}

@@ -1,0 +1,52 @@
+<mat-card *ngIf="article">
+  <mat-card-header>
+    <mat-card-title>
+      <a href="{{article.link}}" target="_blank">
+        <h3>{{article.title | titlecase}}</h3>
+        <span>(32565)</span>
+      </a>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-tab-group mat-stretch-tabs>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span>Info</span>
+      </ng-template>
+      <mat-card-subtitle>By: {{article.authors}}</mat-card-subtitle>
+      <mat-card-subtitle>Published date: {{article.published_date}}</mat-card-subtitle>
+      <!-- <mat-card-subtitle>Area: {{article.area}}</mat-card-subtitle> -->
+      <mat-card-subtitle>Area: Medicine</mat-card-subtitle>
+      <!-- <mat-card-subtitle>Category: {{article.category}}</mat-card-subtitle> -->
+      <mat-card-subtitle>Category: Cardiology and Cardiovascular Medicine</mat-card-subtitle>
+      <mat-card-subtitle>Journal: {{article.journal}}</mat-card-subtitle>
+      <mat-card-content>
+        <p>{{article.abstract}}</p>
+      </mat-card-content>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span matBadge="{{article.references.length}}" matBadgeOverlap="false">Reference</span>
+      </ng-template>
+      <ol>
+        <li *ngFor="let ref of article.references">{{ref}}</li>
+      </ol>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span matBadge="{{article.citations.length}}" matBadgeOverlap="false">Citation</span>
+      </ng-template>
+      <ol>
+        <li *ngFor="let cb of article.citations">{{cb}}</li>
+      </ol>
+    </mat-tab>
+  </mat-tab-group>
+
+  <mat-card-actions>
+    <div id="buttonDiv">
+      <button mat-raised-button (click)="closeDetailDiv()">
+        <mat-icon>clear</mat-icon>CLOSE
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

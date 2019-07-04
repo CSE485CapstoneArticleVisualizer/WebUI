@@ -9,7 +9,13 @@ export class AppComponent implements OnInit {
 
   @ViewChild('sidenav') sidenav;
 
+  data: any;
+
+  constructor() {
+
+  }
+
   ngOnInit() {
-    this.sidenav.opened = true;
+    // this.sidenav.opened = true;
   }
 }

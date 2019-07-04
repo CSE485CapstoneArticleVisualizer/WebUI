@@ -1,7 +1,6 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { DataModel } from '../data/data.model';
+import { ArticleService } from './../service/article.service';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +8,44 @@ import { DataModel } from '../data/data.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  data: Observable<DataModel[]>;
 
-  constructor(private http: HttpClient) {
-    this.getJSON().subscribe(data => {
-      console.log(data);
-      this.data = data;
-    });
+  constructor(private http: HttpClient, private articleService: ArticleService) {
+
   }
 
   ngOnInit() {
 
-  }
+    // this.articleService.getArticlesByAuthor().subscribe(data => {
+    //   this.data = data;
+    //   APP_CONFIG.N = data.articles.length;
+    //   console.log(data.articles);
+    //   console.log(data.links);
+    //   // this.nodes = data.nodes;
+    //   this.links = data.links;
 
-  public getJSON(): Observable<any> {
-    return this.http.get('./assets/data.json');
+    //   /** constructing the nodes array */
+    //   for (let i = 0; i < data.articles.length; i++) {
+    //     const n = new Node(data.articles[i]);
+    //     // n.linkCount = data.articles.length - i;
+    //     this.nodes.push(n);
+    //   }
+
+    //   console.log(this.nodes);
+
+    //   for (let j = 0; j < data.links.length; j++) {
+    //     // console.log(data.links[j].source);
+    //     // console.log(data.links[j].target);
+
+    //     const sourceNode = this.nodes.find(n => n.id === data.links[j].source);
+    //     const targetNode = this.nodes.find(n => n.id === data.links[j].target);
+    //     sourceNode.linkCount++;
+    //     targetNode.linkCount++;
+    //     // console.log(sourceNode);
+    //     // console.log(targetNode);
+    //     // this.links.push(new Link(sourceNode, targetNode));
+    //   }
+
+    //   this.links = data.links;
+    // });
   }
 }
