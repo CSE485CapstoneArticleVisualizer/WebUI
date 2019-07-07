@@ -74,7 +74,7 @@ export class FilterComponent implements OnInit {
   }
 
   getArtitcleByAuthor() {
-    this.articleService.getArticlesByAuthor().subscribe(data => {
+    this.articleService.getArticlesByAuthor('Alex').subscribe(data => {
       console.log(data);
     });
   }

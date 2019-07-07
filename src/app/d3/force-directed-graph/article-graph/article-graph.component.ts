@@ -38,7 +38,7 @@ export class ArticleGraphComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     const journal = this.route.snapshot.paramMap.get('journal');
     console.log(journal);
-    this.articleService.getArticlesByAuthor().subscribe(data => {
+    this.articleService.getArticlesByAuthor('Alex').subscribe(data => {
       APP_CONFIG.N = data.articles.length;
       console.log(data.articles);
       console.log(data.links);
@@ -97,6 +97,7 @@ export class ArticleGraphComponent implements OnInit, AfterViewInit {
   }
 
   getArticleInfoByID(id: number) {
+    this.showDetail = false;
     this.articleID = id;
     this.articleService.getArticleInfoByID(this.articleID).subscribe(data => {
       console.log(data);
